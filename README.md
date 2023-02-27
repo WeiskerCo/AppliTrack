@@ -1,0 +1,2 @@
+# AppliTrack
+Job application tracker
