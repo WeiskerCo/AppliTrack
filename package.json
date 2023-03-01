@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "nodemon server/server.ts",
     "build": "webpack",
-    "dev": "webpack serve --open --hot"
+    "dev": "webpack serve --open --hot & nodemon server/server.ts"
   },
   "repository": {
     "type": "git",

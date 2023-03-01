@@ -27,7 +27,10 @@ const dashboard: React.FC = () => {
     
     useEffect(() => {
         axios.get("/api/jobs/getJobs")
-        .then((data: any) => setJobList(data))
+        .then((data: any) => {
+          console.log("DATA",data);
+          setJobList(data);
+        })
         .catch((err) => console.log(err))
     }, [jobList])
 
