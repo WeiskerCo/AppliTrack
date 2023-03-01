@@ -26,6 +26,7 @@ const GoogleOAuthButton = () => {
           console.log('Login Failed')
         }}
         useOneTap
+        size='large'
       />
     </div>
   )

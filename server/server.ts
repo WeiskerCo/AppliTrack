@@ -3,10 +3,13 @@ import express from 'express';
 
 const PORT = process.env.PORT || 3000;
 const apiRouter = require('./routes/api')
+const cookieParser = require('cookie-parser');
+
 
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '..', 'client', 'images')));
