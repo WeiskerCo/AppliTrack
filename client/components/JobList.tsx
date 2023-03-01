@@ -15,6 +15,7 @@ const jobList: React.FC<JobListProps> = (props: any) => {
     location = {obj.location}
     status = {obj.status}
     salary = {obj.salary}
+    jobID = {obj.id}
     />
 )
   return (

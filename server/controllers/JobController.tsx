@@ -9,7 +9,8 @@ interface JobControllerInterface {
 
 const JobController:JobControllerInterface = {
   addJob: (req: any, res: any, next: any) => {
-    const { name, location, status, salaryRange, url, userId } = req.body;
+    const { name, location, status, salaryRange, url } = req.body;
+    const { userId } = req.cookies;
     console.log('what is the body: ', req.body);
     
     const values = [name, location, status, salaryRange, url, userId];

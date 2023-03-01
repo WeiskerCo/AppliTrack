@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 interface NewJobProps {
     key: any,
@@ -7,11 +8,17 @@ interface NewJobProps {
     location: any,
     status: any,
     salary: any,
+    jobID: any
   }
 
 const newJob: React.FC<NewJobProps> = (props: any) => {
-    const { date, company, location, status, salary } = props
-
+    const { date, company, location, status, salary, jobID } = props;
+    
+    const handleClickedDelete = () => {
+      axios.delete('api/job/delete', {
+        data: {jobID: jobID}
+      })
+    }
   return (
     <div className='job'>
      <div>{date}</div>
@@ -19,6 +26,7 @@ const newJob: React.FC<NewJobProps> = (props: any) => {
      <div>{location}</div>
      <div>{status}</div>
      <div>{salary}</div>
+     <button id='delete' onClick={handleClickedDelete}>X</button>
     </div>
   )
 }

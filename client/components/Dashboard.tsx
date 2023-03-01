@@ -17,7 +17,7 @@ const customStyles = {
   Modal.setAppElement('#root');
   
 const dashboard: React.FC = () => {
-    const [jobList, setJobList]: any = useState([]);
+    const [jobList, setJobList]: any = useState([{ date: '2/27/23', company: 'apple', location: 'cupertino', status: 'applied', salary: '120,000-135,000' }, { date: '2/22/23', company: 'microsoft', location: 'sf', status: 'rejected', salary: '110,000-120,000' }]);
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [company, setCompany] = useState('');
     const [location, setLocation] = useState('');
@@ -29,9 +29,10 @@ const dashboard: React.FC = () => {
         axios.get("/api/jobs/getJobs")
         .then((data: any) => setJobList(data))
         .catch((err) => console.log(err))
-    }, [])
+    }, [jobList])
 
     const handleJobSubmit = (): void => {
+      console.log('submitted')
         axios.post("/api/jobs/addJob", {
             name: company,
             location: location,
@@ -59,6 +60,7 @@ const dashboard: React.FC = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
+        <div className="modal">
         <div>Add a Job!</div>
         <button onClick={closeModal}>Close</button>
         <label id='company'> Company: 
@@ -83,17 +85,19 @@ const dashboard: React.FC = () => {
         <label id='url'> Job URL: 
             <input type="text" onChange={(e) => setUrl(e.target.value)} />
         </label>
-        <button onClick={(e) => {closeModal;handleJobSubmit}}>Submit</button>
+        <button onClick={(e) => {closeModal(); handleJobSubmit()}}>Submit</button>
+        </div>
       </Modal>
 
      <h2>Job Application List</h2>
-     <button onClick={openModal}>Add New Job</button>
+     <button className='newjob-button' onClick={openModal}>Add New Job</button>
     <div id='headers'>
         <p>Date</p>
         <p>Company</p>
         <p>Location</p>
         <p>Status</p>
         <p>Salary</p>
+        <div className="space"></div>
     </div>
      <JobList jobList={jobList}/>
     </div>
