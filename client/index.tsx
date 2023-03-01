@@ -15,7 +15,7 @@ const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
-  <GoogleOAuthProvider clientId='GOOGLE_CLIENT_ID'>
+  <GoogleOAuthProvider clientId='29448142204-hghum62l1h5mi4b0g3rouepdlr4por8q.apps.googleusercontent.com'>
     <BrowserRouter>
       <App />
     </BrowserRouter>
