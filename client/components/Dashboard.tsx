@@ -25,21 +25,20 @@ const dashboard: React.FC = () => {
     const [salaryRange, setSalaryRange] = useState('');
     const [url, setUrl] = useState('');
     
-    const salaryInput = useRef();
-    
     useEffect(() => {
-        axios.get("/api")
+        axios.get("/api/jobs/getJobs")
         .then((data: any) => setJobList(data))
         .catch((err) => console.log(err))
     }, [])
 
     const handleJobSubmit = (): void => {
-        axios.post("/api/jobSumit", {
-            company: company,
+        axios.post("/api/jobs/addJob", {
+            name: company,
             location: location,
             status: status,
             salaryRange: salaryRange,
             url: url
+            //userID
         })
         .then((data) => console.log(data))
         .catch((err)=> console.log(err))
