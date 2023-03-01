@@ -1,18 +1,22 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
+import NavBar from './components/NavBar'
 import Home from './components/Home';
+import Login from './components/Login'
 // import Docs from "./components/Docs";
+
 
 const App = () => {
   return (
-    <Router>
+    <div>
+      <NavBar />
       <Routes>
-        <Route index element={<Home/>}/>
-        <Route path="/home" element={<Home />} />
+        <Route path = "/" index element={<Home/>}/>
+        <Route path="/login" element={<Login />} />
         {/* <Route path="/docs" element={<Docs />} /> */}
       </Routes>
-    </Router>
+    </div>
   );
 }
 
