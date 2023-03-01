@@ -1,4 +1,4 @@
-const db = require('../models/AppModel')
+const dbJob = require('../models/AppModel')
 
 interface JobControllerInterface {
   addJob: (req: any, res: any, next: any) => any;
@@ -9,8 +9,10 @@ interface JobControllerInterface {
 
 const JobController:JobControllerInterface = {
   addJob: (req: any, res: any, next: any) => {
-    const { name, location, status, salaryRange, url, userId } = req.body;
-    console.log('what is the body: ', req.body);
+    const { name, location, status, salaryRange, url } = req.body;
+    const userId = req.cookies.user_id;
+    // console.log('what is the body: ', req.body);
+    console.log('cookie id in add job ', userId)
     
     const values = [name, location, status, salaryRange, url, userId];
     const addQuery = `
@@ -31,11 +33,11 @@ const JobController:JobControllerInterface = {
     //   )
 
     // try {
-      // const newRow = await db.query(addQuery, values);
+      // const newRow = await dbJob.query(addQuery, values);
       // console.log('added data is: ', newRow)
 
       console.log('the current uri is: ', process.env.PG_URI)
-      db
+      dbJob
         .query(addQuery, values)
         .then(data => {
           console.log('what is being console logged here: ', data)
@@ -50,7 +52,10 @@ const JobController:JobControllerInterface = {
   },
 
   findUserJobs: async (req: any, res: any, next: any) => {
-    const { userId } = req.body;
+    const userId = req.cookies.user_id;
+
+    console.log('cookie id in find job ', userId)
+
 
     const findQuery = `
     SELECT * FROM jobs
@@ -58,8 +63,9 @@ const JobController:JobControllerInterface = {
     `
 
     try {
-      const userJobs = await db.query(findQuery);
+      const userJobs = await dbJob.query(findQuery);
       res.locals.userJobs = userJobs.rows;
+      console.log('user jobs being sent back ', res.locals.userJobs)
 
       return next();
     } catch (err) {
@@ -75,7 +81,7 @@ const JobController:JobControllerInterface = {
     `
 
     try {
-      const deleteJob = await db.query(deleteQuery);
+      const deleteJob = await dbJob.query(deleteQuery);
       console.log('deleted job: ', deleteJob)
 
       return next();
