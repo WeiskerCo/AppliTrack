@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import GoogleOAuthButton from './GoogleOAuthButton';
 
 const login: React.FC = () => {
   const navigate = useNavigate();
@@ -32,6 +33,7 @@ const login: React.FC = () => {
             <input type="text" onChange={(e) => setPassword(e.target.value)}/>
         </label>
         <button onClick={handleSubmit}>Login</button>
+        <GoogleOAuthButton/>
     </div>
   )
 }
