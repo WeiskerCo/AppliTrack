@@ -20,7 +20,7 @@ const GoogleOAuthButton = () => {
         onSuccess={response => {
           console.log(jwt_decode(response.credential))
           sendOAuthUserData(jwt_decode(response.credential))
-          navigate('/login');
+          navigate('/dashboard');
         }}
         onError={() => {
           console.log('Login Failed')
