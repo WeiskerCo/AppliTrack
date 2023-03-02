@@ -29,7 +29,7 @@ const { Pool } = require('pg');
 //   FOREIGN KEY (user_id) REFERENCES users (ID)
 //   )
 
-const PG_URI = 'postgres://mpfqisif:6j6r0vv77HvUDZalq4N-_LRidcP0Uqqk@mahmud.db.elephantsql.com/mpfqisif';
+const PG_URI = 'pguri';
 
 // create a new pool here using the connection string above
 const pool = new Pool({
