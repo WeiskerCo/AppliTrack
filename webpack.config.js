@@ -33,14 +33,8 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i, 
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              esModule: false,
-            },
-          },
-        ],
+        exclude: /node_modules/,
+        use: ["file-loader"],
       }
     ],
   },

@@ -8,15 +8,15 @@ interface NewJobProps {
     location: any,
     status: any,
     salary: any,
-    jobID: any
+    jobID: any,
   }
 
 const newJob: React.FC<NewJobProps> = (props: any) => {
     const { date, company, location, status, salary, jobID } = props;
     
     const handleClickedDelete = () => {
-      axios.delete('api/job/delete', {
-        data: {jobID: jobID}
+      axios.delete('api/jobs/deleteJob', {
+        data: {jobId: jobID}
       })
     }
   return (

@@ -3,10 +3,16 @@ const router = express.Router();
 
 const jobController = require('../controllers/JobController')
 const userController = require('../controllers/UserController')
+const cookieController = require('../controllers/CookieController')
 const { addJob, findUserJobs, deleteUserJob } = jobController;
-const { createUser, login } = userController;
+const { createUser, login, userExists } = userController;
+const { createCookie } = cookieController
 
 // for user routes
+router.post('/auth/oauth', userExists, login, createUser, createCookie, (req: any, res: any) => {
+  return res.status(200).json({"mmmmmm": "cookiessssss"})
+})
+
 router.post('/auth/createUser', createUser, (req: any, res: any) => {
   return res.status(200).json({"wow": "incredible"});
 });

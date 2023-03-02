@@ -10,7 +10,7 @@ const GoogleOAuthButton = () => {
   const navigate = useNavigate();
 
   const sendOAuthUserData = async data => {
-    const OAuthData = await axios.post('api/auth/createUser', data)
+    const OAuthData = await axios.post('api/auth/oauth', data)
   }
   
   return (

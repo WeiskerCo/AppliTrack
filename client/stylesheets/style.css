@@ -3,6 +3,7 @@ body {
   margin: 0px;
   padding: 0px;
   border: 0px;
+  font-family: 'Open Sans';
 }
 
 body {
@@ -30,7 +31,6 @@ body {
 }
 
 #login-div {
-  border: 1px solid red;
   display: flex;
   align-items: end;
 }
@@ -111,6 +111,15 @@ body {
   justify-content: space-between;
 }
 
+.job div {
+  width: 20%;
+  padding: 5px;
+}
+
 .modal {
   width: 70%;
+}
+
+#dashboard {
+  margin: 0 4vw;
 }

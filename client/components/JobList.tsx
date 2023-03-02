@@ -1,31 +1,33 @@
-import React from 'react';
-import NewJob from '../components/NewJob'
+import React from "react";
+import NewJob from "../components/NewJob";
 
 interface JobListProps {
-    jobList: any[];
-  }
-  
+  jobList: any[];
+  handleDelete: any
+}
+
 const jobList: React.FC<JobListProps> = (props: any) => {
-    const { jobList } = props
-    const newJob = jobList.map((obj: any, i: any) => 
-    <NewJob 
-    key = {i}
-    date = {obj.date}
-    company = {obj.company}
-    location = {obj.location}
-    status = {obj.status}
-    salary = {obj.salary}
-    jobID = {obj.id}
-    />
-)
+  const { jobList } = props;
+
   return (
     <div>
-        {newJob}
+      {jobList &&
+        jobList.map((obj: any, i: any) => (
+          <NewJob
+            key={i}
+            date={new Date(obj.time_stamp).toDateString()}
+            company={obj.company_name}
+            location={obj.company_location}
+            status={obj.status}
+            salary={obj.salary_range}
+            jobID={obj.id}
+          />
+        ))}
     </div>
     // dataTypes.map(dataType => {
     //     return <NewJob />
     // })
-  )
-}
+  );
+};
 
 export default jobList;
