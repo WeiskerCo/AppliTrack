@@ -1,0 +1,125 @@
+HTML,
+body {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-family: 'Open Sans';
+}
+
+body {
+  background-color: #5feced;
+}
+
+.main {
+  background-color: #e4e325;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px,
+    rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px,
+    rgba(240, 46, 170, 0.05) 0px 25px;
+}
+
+#nav {
+  background-color: #17153a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em;
+  border: 1px solid green;
+}
+
+#login-div {
+  display: flex;
+  align-items: end;
+}
+
+.link {
+  color: #e4e325;
+  padding: 0 1em;
+}
+
+.link:hover {
+  color: #5feced;
+}
+
+#headers {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e4e325;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.space {
+  margin-right: 5em;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.newjob-button {
+  appearance: button;
+  background-color: #000;
+  background-image: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 10%;
+}
+.newjob-button:focus {
+  text-decoration: none;
+}
+
+.newjob-button:hover {
+  text-decoration: none;
+}
+
+.newjob-button:active {
+  box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.newjob-button:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+.job {
+  display: flex;
+  background-color: #9f9bf0;
+  justify-content: space-between;
+}
+
+.job div {
+  width: 20%;
+  padding: 5px;
+}
+
+.modal {
+  width: 70%;
+}
+
+#dashboard {
+  margin: 0 4vw;
+}
